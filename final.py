@@ -109,34 +109,51 @@ body = html.Div([
 	html.H1('NYC April 2020 Taxi Record'),
 	html.Div(children=[
 		html.H2('Introduction'),
-		
+		html.P('New York City is one of the most busiest city in the world. WIth all of the moving and hustling of people, there are a ton of movement'),
+		html.P('Taxi cabs are one many mode of transportation. Using the data provided to us, we made these visualization to help identify places to make more profits.'),
+		html.P('This is only the month of April of 2020, so there are a little less data due to covid.')
 		]
 	)
 	,
 	
-	html.Div(
-		dcc.Graph(
-			id='map',
-			figure=map
+	html.Div(children=[
+		html.H2('Number of taxi trip in a given locations'),
+		html.Div(children=[
+			dcc.Graph(
+				id='map',
+				figure=map
+				),
+			html.P('In this month, the area within New York City had the most trips. a good amount of the averaging around 2-6 thouands trips.Other places seeing sub 2 thouands'),
+			]
 			)
+			]
 		),
-	html.Div(
+	html.Div(children=[
+		html.H2('Total amount of tip in a month in a given locations'),
 		dcc.Graph(
 			id='mapTip',
 			figure=mapTip
-			)
+			),
+			html.P('Similar to the visualization above, more trips means more chances for tip money. Two good place outside the city are the airports')
+			]
 		),
-	html.Div(
+	html.Div(children=[
+		html.H2('Total amount of taxi trips in a month per hour'),
+		dcc.Graph(
+			id = 'tripBar',
+			figure = tripfig
+			),
+			html.P('This seems normal with activites picking up during the day and dying out at night. Kind of busy at the 6,7 am mark and 3 and 4 pm mark.')
+			]
+		),
+	html.Div(children=[
+		html.H2('Total amount of money earned in a month per hour'),
 		dcc.Graph(
 			id = 'moneyBar',
 			figure = moneyfig
 			),
-		),
-	html.Div(
-		dcc.Graph(
-			id = 'tripBar',
-			figure = tripfig
-			)
+			html.P('there is a slight shift in the amount of money earned. the busiest time of the day is 3 pm but 4 pm brings in more money. It might be due to the congestion fee.')
+			]
 		),
 		
 	html.Div(children=[ 
