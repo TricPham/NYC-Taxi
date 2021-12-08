@@ -106,25 +106,58 @@ tripfig = px.bar(timeFrame, x = 'time', y = 'number_of_trips',color= 'number_of_
 					labels ={'time':'hour in 24H', 'number_of_trips':'Number of trips'})
 
 body = html.Div([
-	html.H1(children = 'NYC April 2020 Taxi Record'),
+	html.H1('NYC April 2020 Taxi Record'),
+	html.Div(children=[
+		html.H2('Introduction'),
+		
+		]
+	)
+	,
 	
+	html.Div(
 		dcc.Graph(
 			id='map',
 			figure=map
+			)
+		),
+	html.Div(
+		dcc.Graph(
+			id='mapTip',
+			figure=mapTip
+			)
+		),
+	html.Div(
+		dcc.Graph(
+			id = 'moneyBar',
+			figure = moneyfig
 			),
-	dcc.Graph(
-		id='mapTip',
-		figure=mapTip
 		),
-	dcc.Graph(
-		id = 'moneyBar',
-		figure = moneyfig
+	html.Div(
+		dcc.Graph(
+			id = 'tripBar',
+			figure = tripfig
+			)
 		),
-	dcc.Graph(
-		id = 'tripBar',
-		figure = tripfig
-		)
+		
+	html.Div(children=[ 
+		html.H2('About Team Solo',style ={'text-align':'center'}),
+		html.P('Team solo is a one map group, that was not able to make this into a website. Instead it is a simple python based web app that kind of looks like a website.', style = {'text-align':'center'}),
+		dcc.Link(html.P('The dataset comes from TLC'), href = 'https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page',style = {'text-align':'center'}),
+		html.P('It provided taxi trip information such as the pickup locations, trip distances, total trip cost, and more.', style = {'text-align':'center'}),
+		], 
+		
+	),
+	
+	html.Div(children=[
+		html.H2('Team Member',style ={'text-align':'center'}),
+		dcc.Link(html.P('Github page'), href = 'https://tricpham.github.io/',style = {'text-align':'center'})
 	]
+	),
+		
+	html.Footer(
+		html.P('University of Hawaii at Manoa ICS484 / ACM 484 Data Visualization Project', style = {'text-align':'center'})
+		),
+	]	
 )
 
 
